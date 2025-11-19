@@ -73,6 +73,8 @@ class Trap:
     
     # get the neighboring trapezoid based on the edge between them
     def get_neighbor(self, between_edge):
+        if between_edge is None:
+            return None
         edges = [self.edge_top, self.edge_right, self.edge_left, self.edge_bottom]
         for edge in edges:
             # Left or right edges can be none
@@ -84,5 +86,4 @@ class Trap:
                     if trap.id != self.id:
                         return trap
         # If no trapezoid was returned, error I guess
-        print("uh oh, trapezoid neighbor returned none")
         return None
